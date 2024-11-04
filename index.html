@@ -72,6 +72,7 @@
             if (username === "admin" && password === "1234") {
                 document.getElementById('message').textContent = "Login successful!";
                 document.getElementById('message').style.color = "green";
+                window.location.href = "login.html";
             } else {
                 document.getElementById('message').textContent = "Invalid username or password.";
                 document.getElementById('message').style.color = "red";
