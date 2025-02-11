@@ -1,38 +1,160 @@
+/* Modern CSS Styles */
+:root {
+    --primary-color: #2A2A2A;
+    --secondary-color: #4A90E2;
+    --accent-color: #FF6B6B;
+    --text-color: #333;
+    --bg-color: #F9F9F9;
+    --card-bg: #FFFFFF;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    max-width: 800px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
 header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    padding: 40px 0;
+    background: linear-gradient(135deg, var(--secondary-color), #3B5998);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
 }
 
 section {
-    margin: 40px 0;
+    margin: 60px 0;
+    padding: 30px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
 }
 
-h1, h2, h3 {
-    color: #2c3e50;
-}
-
-.project, .item {
-    background: #f9f9f9;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 5px;
+section:hover {
+    transform: translateY(-5px);
 }
 
 .contact {
-    margin: 20px 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
-/* Add responsive design */
-@media (max-width: 600px) {
+.contact a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    background-color: rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.contact a:hover {
+    background-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.project, .item {
+    padding: 25px;
+    margin: 20px 0;
+    border-left: 4px solid var(--secondary-color);
+    background: var(--card-bg);
+    border-radius: 8px;
+    position: relative;
+}
+
+.project h3, .item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.project::before, .item::before {
+    content: '▹';
+    position: absolute;
+    left: -15px;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.skills-container div {
+    padding: 20px;
+    background: rgba(74, 144, 226, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(74, 144, 226, 0.1);
+}
+
+/* Timeline effect for experience */
+.item {
+    position: relative;
+    padding-left: 30px;
+}
+
+.item::after {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 25px;
+    width: 16px;
+    height: 16px;
+    background: var(--card-bg);
+    border: 3px solid var(--secondary-color);
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
     body {
-        padding: 10px;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 20px;
+    }
+    
+    .skills-container {
+        grid-template-columns: 1fr;
     }
 }
