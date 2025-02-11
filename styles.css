@@ -16,6 +16,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 header {
@@ -32,25 +33,6 @@ h1 {
     font-size: 2.8rem;
     font-weight: 600;
     margin-bottom: 10px;
-    letter-spacing: -1px;
-}
-
-h2 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 30px;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background-color: var(--accent-color);
 }
 
 section {
@@ -66,79 +48,28 @@ section:hover {
     transform: translateY(-5px);
 }
 
-.contact {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+/* Dark Mode */
+.dark-mode {
+    --text-color: #F5F5F5;
+    --bg-color: #121212;
+    --card-bg: #1E1E1E;
 }
 
-.contact a {
+#darkModeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: var(--secondary-color);
     color: white;
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 25px;
-    background-color: rgba(255,255,255,0.1);
-    transition: all 0.3s ease;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
 }
 
-.contact a:hover {
-    background-color: rgba(255,255,255,0.2);
-    transform: translateY(-2px);
-}
-
-.project, .item {
-    padding: 25px;
-    margin: 20px 0;
-    border-left: 4px solid var(--secondary-color);
-    background: var(--card-bg);
-    border-radius: 8px;
-    position: relative;
-}
-
-.project h3, .item h3 {
-    color: var(--primary-color);
-    margin-bottom: 10px;
-}
-
-.project::before, .item::before {
-    content: '▹';
-    position: absolute;
-    left: -15px;
-    color: var(--accent-color);
-    font-size: 1.2rem;
-}
-
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-}
-
-.skills-container div {
-    padding: 20px;
-    background: rgba(74, 144, 226, 0.05);
-    border-radius: 8px;
-    border: 1px solid rgba(74, 144, 226, 0.1);
-}
-
-/* Timeline effect for experience */
-.item {
-    position: relative;
-    padding-left: 30px;
-}
-
-.item::after {
-    content: '';
-    position: absolute;
-    left: -8px;
-    top: 25px;
-    width: 16px;
-    height: 16px;
-    background: var(--card-bg);
-    border: 3px solid var(--secondary-color);
-    border-radius: 50%;
+#darkModeToggle:hover {
+    background: var(--accent-color);
 }
 
 @media (max-width: 768px) {
@@ -152,9 +83,5 @@ section:hover {
     
     section {
         padding: 20px;
-    }
-    
-    .skills-container {
-        grid-template-columns: 1fr;
     }
 }
